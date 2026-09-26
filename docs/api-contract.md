@@ -35,11 +35,13 @@
   "createdByUserId": 5,
   "assigneeUserId": null
 }
+
 ## Пример назначения исполнителя (PATCH …/assignee)
 Тело:
 
 ```json
 { "assigneeUserId": 8 }
+
 ## Пример смены статуса (PATCH …/status)
 Тело:
 
