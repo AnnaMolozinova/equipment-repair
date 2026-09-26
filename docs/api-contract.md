@@ -22,7 +22,7 @@
 }
 Клиент не присылает при создании id, number, status и исполнителя. Их определяет сервер.
 
-Пример успешного ответа (201)
+## Пример успешного ответа (201)
 ```json
 {
   "id": 17,
@@ -34,17 +34,17 @@
   "createdByUserId": 5,
   "assigneeUserId": null
 }
-Пример назначения исполнителя (PATCH …/assignee)
+## Пример назначения исполнителя (PATCH …/assignee)
 Тело:
 
 ```json
 { "assigneeUserId": 8 }
-Пример смены статуса (PATCH …/status)
+## Пример смены статуса (PATCH …/status)
 Тело:
 
 ```json
 { "status": "InProgress" }
-Статусы
+## Статусы
 New — новая
 
 InProgress — в работе
