@@ -1,0 +1,63 @@
+﻿{
+  "info": {
+    "name": "Equipment Repair API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Создать заявку (201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Сломался станок\",\n  \"equipmentId\": 2,\n  \"description\": \"Сильно шумит и вибрирует\"\n}"
+        },
+        "url": "http://localhost:5000/api/tickets"
+      }
+    },
+    {
+      "name": "2. Создать заявку (400 - короткая тема)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"abc\",\n  \"equipmentId\": 2,\n  \"description\": \"Сильно шумит и вибрирует\"\n}"
+        },
+        "url": "http://localhost:5000/api/tickets"
+      }
+    },
+    {
+      "name": "3. Получить заявку (404 - не найдена)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/tickets/999"
+      }
+    },
+    {
+      "name": "4. Назначить исполнителя (200)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"assigneeUserId\": 5\n}"
+        },
+        "url": "http://localhost:5000/api/tickets/1/assignee"
+      }
+    },
+    {
+      "name": "5. Взять в работу (409 - нет исполнителя)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"InProgress\"\n}"
+        },
+        "url": "http://localhost:5000/api/tickets/2/status"
+      }
+    }
+  ]
+}
